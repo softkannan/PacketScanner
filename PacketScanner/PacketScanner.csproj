@@ -52,45 +52,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Common\BitArrayReaderExtensions.cs" />
-    <Compile Include="Common\BitArrayReader.cs" />
-    <Compile Include="Common\PortInfo.cs" />
-    <Compile Include="Common\PortNumberExtensions.cs" />
-    <Compile Include="Common\TCPPortLookup.cs" />
-    <Compile Include="Common\UDPPortLookup.cs" />
-    <Compile Include="Display\DCCPDisplayPacket.cs" />
-    <Compile Include="Display\EIGRPDisplayPacket.cs" />
-    <Compile Include="Display\GREDisplayPacket.cs" />
-    <Compile Include="Display\IgmpDisplayPacket.cs" />
-    <Compile Include="Display\OSPFDisplayPacket.cs" />
-    <Compile Include="Headers\DCCPHeader.cs" />
-    <Compile Include="Headers\EIGRPHeader.cs" />
-    <Compile Include="Headers\GREHeader.cs" />
-    <Compile Include="Headers\IcmpHeader.cs" />
-    <Compile Include="Headers\IgmpHeader.cs" />
-    <Compile Include="Display\IPDisplayPacket.cs" />
-    <Compile Include="Headers\DnsHeader.cs" />
-    <Compile Include="Headers\IpV4Header.cs" />
-    <Compile Include="Headers\OSPFHeader.cs" />
-    <Compile Include="MainForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="MainForm.Designer.cs">
-      <DependentUpon>MainForm.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Packer\ResourceFile.cs" />
+    <Compile Include="Bootstrap.cs" />
+    <Compile Include="Dependant\ResourceFile.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Common\Protocol.cs" />
-    <Compile Include="Display\TCPDisplayPacket.cs" />
-    <Compile Include="Headers\TcpHeader.cs" />
-    <Compile Include="Display\IcmpDisplayPacket.cs" />
-    <Compile Include="Display\UDPDisplayPacket.cs" />
-    <Compile Include="Headers\UDPHeader.cs" />
-    <Compile Include="Display\UnknownDisplayPacket.cs" />
-    <EmbeddedResource Include="MainForm.resx">
-      <DependentUpon>MainForm.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -122,13 +87,18 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="network.ico" />
-    <EmbeddedResource Include="Packer\ObjectListView.dll" />
+    <EmbeddedResource Include="Dependant\PacketScannerLib.dll" />
+    <EmbeddedResource Include="Dependant\ObjectListView.dll" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="..\PacketScannerLib\PacketScannerLib.csproj">
+      <Project>{5208a14e-efbc-4057-bac8-ef8aa24d6b76}</Project>
+      <Name>PacketScannerLib</Name>
+      <Private>False</Private>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
-    <PostBuildEvent>copy $(TargetPath) $(ProjectDir)..\Output\PacketScanner_Unpacked.exe
-copy $(ProjectDir)network.ico $(ProjectDir)..\Output\.
-$(ProjectDir)..\DotNetCompressor\NetCompressor.exe $(ProjectDir)..\Output\PacketScanner_Unpacked.exe $(ProjectDir)..\Output\PacketScanner.exe -gz -w -i $(ProjectDir)..\Output\network.ico</PostBuildEvent>
+    <PostBuildEvent>copy $(TargetPath) $(ProjectDir)..\Output\.</PostBuildEvent>
   </PropertyGroup>
 </Project>

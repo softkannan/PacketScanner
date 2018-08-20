@@ -46,7 +46,7 @@ namespace PacketScanner
                 var exeName = System.Diagnostics.Process.GetCurrentProcess().MainModule.FileName;
                 ProcessStartInfo startInfo = new ProcessStartInfo(exeName);
                 startInfo.Verb = "runas";
-                Process proc =  System.Diagnostics.Process.Start(startInfo);
+                Process proc = System.Diagnostics.Process.Start(startInfo);
                 proc.WaitForExit();
                 return;
             }
@@ -56,19 +56,22 @@ namespace PacketScanner
                 {
                     Application.EnableVisualStyles();
                     Application.SetCompatibleTextRenderingDefault(false);
-                    EmbeddedAssembly[] loadAssembly = { new EmbeddedAssembly() { AssemblyName = "ObjectListView", FileName = "ObjectListView.dll", ResourceName = "PacketScanner.Packer.ObjectListView.dll" } };
+
+                    EmbeddedAssembly[] loadAssembly = {
+                        new EmbeddedAssembly() { AssemblyName = "ObjectListView", FileName = "ObjectListView.dll", ResourceName = "PacketScanner.Dependant.ObjectListView.dll" },
+                        new EmbeddedAssembly() { AssemblyName = "PacketScannerLib", FileName = "PacketScannerLib.dll", ResourceName = "PacketScanner.Dependant.PacketScannerLib.dll" }
+                    };
 
                     foreach (var item in loadAssembly)
                     {
                         //prepare dependant dll files
                         var resFile = new ResourceFile(item.ResourceName);
-                        resFile.CopyTo("ObjectListView.dll");
                         item.File = resFile;
-
                         _embeddedAssembly.Add(item.AssemblyName, item);
                     }
                     AppDomain.CurrentDomain.AssemblyResolve += CurrentDomain_AssemblyResolve;
-                    Application.Run(new MainForm());
+                    var bootStrap = new Bootstrap();
+                    bootStrap.Execute();
                 }
                 catch (Exception ex)
                 {
@@ -88,9 +91,9 @@ namespace PacketScanner
         {
             var assyName = new AssemblyName(args.Name);
             EmbeddedAssembly foundAssembly;
-            if (_embeddedAssembly.TryGetValue(assyName.Name,out foundAssembly))
+            if (_embeddedAssembly.TryGetValue(assyName.Name, out foundAssembly))
             {
-                return foundAssembly.File.LoadAssembly();
+                return foundAssembly.File.LoadMemoryAssembly();
             }
             return null;
         }

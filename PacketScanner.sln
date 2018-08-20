@@ -4,8 +4,13 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 VisualStudioVersion = 15.0.27703.2026
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PacketScanner", "PacketScanner\PacketScanner.csproj", "{5798D308-FE60-4A3F-A9D7-47F18D902549}"
+	ProjectSection(ProjectDependencies) = postProject
+		{5208A14E-EFBC-4057-BAC8-EF8AA24D6B76} = {5208A14E-EFBC-4057-BAC8-EF8AA24D6B76}
+	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestingApp", "TestingApp\TestingApp.csproj", "{173CB267-9B70-493B-842A-F73CECC5A157}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PacketScannerLib", "PacketScannerLib\PacketScannerLib.csproj", "{5208A14E-EFBC-4057-BAC8-EF8AA24D6B76}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -56,6 +61,24 @@ Global
 		{173CB267-9B70-493B-842A-F73CECC5A157}.ReleaseDebug|x64.Build.0 = Release|Any CPU
 		{173CB267-9B70-493B-842A-F73CECC5A157}.ReleaseDebug|x86.ActiveCfg = Release|Any CPU
 		{173CB267-9B70-493B-842A-F73CECC5A157}.ReleaseDebug|x86.Build.0 = Release|Any CPU
+		{5208A14E-EFBC-4057-BAC8-EF8AA24D6B76}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5208A14E-EFBC-4057-BAC8-EF8AA24D6B76}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5208A14E-EFBC-4057-BAC8-EF8AA24D6B76}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{5208A14E-EFBC-4057-BAC8-EF8AA24D6B76}.Debug|x64.Build.0 = Debug|Any CPU
+		{5208A14E-EFBC-4057-BAC8-EF8AA24D6B76}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{5208A14E-EFBC-4057-BAC8-EF8AA24D6B76}.Debug|x86.Build.0 = Debug|Any CPU
+		{5208A14E-EFBC-4057-BAC8-EF8AA24D6B76}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5208A14E-EFBC-4057-BAC8-EF8AA24D6B76}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5208A14E-EFBC-4057-BAC8-EF8AA24D6B76}.Release|x64.ActiveCfg = Release|Any CPU
+		{5208A14E-EFBC-4057-BAC8-EF8AA24D6B76}.Release|x64.Build.0 = Release|Any CPU
+		{5208A14E-EFBC-4057-BAC8-EF8AA24D6B76}.Release|x86.ActiveCfg = Release|Any CPU
+		{5208A14E-EFBC-4057-BAC8-EF8AA24D6B76}.Release|x86.Build.0 = Release|Any CPU
+		{5208A14E-EFBC-4057-BAC8-EF8AA24D6B76}.ReleaseDebug|Any CPU.ActiveCfg = Release|Any CPU
+		{5208A14E-EFBC-4057-BAC8-EF8AA24D6B76}.ReleaseDebug|Any CPU.Build.0 = Release|Any CPU
+		{5208A14E-EFBC-4057-BAC8-EF8AA24D6B76}.ReleaseDebug|x64.ActiveCfg = Release|Any CPU
+		{5208A14E-EFBC-4057-BAC8-EF8AA24D6B76}.ReleaseDebug|x64.Build.0 = Release|Any CPU
+		{5208A14E-EFBC-4057-BAC8-EF8AA24D6B76}.ReleaseDebug|x86.ActiveCfg = Release|Any CPU
+		{5208A14E-EFBC-4057-BAC8-EF8AA24D6B76}.ReleaseDebug|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

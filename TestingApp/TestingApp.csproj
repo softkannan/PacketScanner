@@ -49,9 +49,9 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\PacketScanner\PacketScanner.csproj">
-      <Project>{5798d308-fe60-4a3f-a9d7-47f18d902549}</Project>
-      <Name>PacketScanner</Name>
+    <ProjectReference Include="..\PacketScannerLib\PacketScannerLib.csproj">
+      <Project>{5208a14e-efbc-4057-bac8-ef8aa24d6b76}</Project>
+      <Name>PacketScannerLib</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
